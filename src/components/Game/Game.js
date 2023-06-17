@@ -28,7 +28,7 @@ function Game() {
 		<GuessForm disabled={!canStillPlay || checkWin } AddWordsCallback={setWords} />
 
 		{ checkWin && <ResultBanner wins guessesNumber={words.length} restartFn={restartGameFn} /> }
-		{!canStillPlay && <ResultBanner wins={checkWin} guessesNumber={words.length} answer={answer} restartFn={restartGameFn}/> }
+		{!canStillPlay && !checkWin && <ResultBanner wins={false} guessesNumber={words.length} answer={answer} restartFn={restartGameFn}/> }
 	</>
 }
 
