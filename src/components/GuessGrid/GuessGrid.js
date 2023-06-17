@@ -7,13 +7,9 @@ function GuessGrid({words, answer}) {
   return (
 		<div className="guess-results">
 			{range(6).map( rowIndx => {
-				const word = words[rowIndx] || ""
-				let result = word ? checkGuess(word, answer) : null
-				return <p key={rowIndx} className="guess">
-					{ range(5).map( colIndx => (
-						<Guess char={word[colIndx]} key={colIndx} result={result} />
-					))}
-				</p>
+				let word = words[rowIndx]
+				let result = checkGuess(word, answer)
+				return <Guess key={rowIndx} word={word} result={result} />
 			})}
 		</div>
 	)
